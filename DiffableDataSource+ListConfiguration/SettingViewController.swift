@@ -62,13 +62,14 @@ class SettingViewController: UIViewController {
     }
     
     func createLayout() -> UICollectionViewLayout {
-        var configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        var configuration = UICollectionLayoutListConfiguration(appearance: .grouped)
         //configuration.backgroundColor = .link
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
         return layout
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "설정"
         view.backgroundColor = .white
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
@@ -89,7 +90,6 @@ class SettingViewController: UIViewController {
 
             //content.secondaryTextProperties.color = .blue
             cell.contentConfiguration = content
-
         }
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             let cell = collectionView.dequeueConfiguredReusableCell(using: registration, for: indexPath, item: itemIdentifier)

@@ -19,8 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        let vc = SettingViewController()
-        window?.rootViewController = vc // sb에서 entrypoint처럼 동작
+        let vc = TravelTalkViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav // sb에서 entrypoint처럼 동작
         window?.makeKeyAndVisible()  // show
     }
 
